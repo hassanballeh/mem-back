@@ -33,7 +33,6 @@ public class MemoryController {
 
     @GetMapping("/{id}")
     public ResponseEntity<MemoryResponse> getMemoryById(@PathVariable Long id) {
-        System.out.println("herrrrr");
         try {
             MemoryResponse memory = memoryService.getMemoryById(id);
             return ResponseEntity.ok(memory);
@@ -47,7 +46,6 @@ public class MemoryController {
         @RequestParam("description") String description,
         @RequestParam("images") List<MultipartFile> images) throws IOException {
         try {
-            System.out.println("now:"+description+ title);
             MemoryResponse memory = memoryService.createMemory(title,description,images);
             
             return ResponseEntity.ok(memory);

@@ -1,7 +1,5 @@
 package com.mem.mem.config;
 
-
-
 import com.mem.mem.security.JwtAuthenticationEntryPoint;
 import com.mem.mem.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;

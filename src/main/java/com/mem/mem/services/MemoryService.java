@@ -13,7 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.*;
@@ -28,14 +27,11 @@ public class MemoryService {
     @Autowired
     private MemoryRepository memoryRepository;
 
-    // @Autowired
-    // private UserRepository userRepository;
 
     @Autowired
     private LikeRepository likeRepository;
 
     public List<MemoryResponse> getAllMemories() {
-        System.out.println("nullhas5");
         List<Memory> memories = memoryRepository.findAllWithLikes();
         Long currentUserId = getCurrentUserId();
         
@@ -91,8 +87,6 @@ public class MemoryService {
                 if (!memory.getUser().getId().equals(currentUser.getId())) {
                     throw new RuntimeException("You can only delete your own memories");
                 }
-                
-
         memoryRepository.delete(memory);
     }
 
